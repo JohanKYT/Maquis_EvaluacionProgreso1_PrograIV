@@ -2,7 +2,8 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Maquis_EvaluacionProgreso1_PrograIV.Models;
 
-namespace Maquis_EvaluacionProgreso1_PrograIV.Models {  }
+namespace Maquis_EvaluacionProgreso1_PrograIV.Models 
+{  
     public enum MotivoVisitaEnum
     {
         Vacunacion,
@@ -18,8 +19,6 @@ public class VisitaVeterinaria
     [DataType(DataType.Date)]
     public DateTime FechaVisita { get; set; } = DateTime.Now;
     [Required(ErrorMessage = "El motivo de la visita es obligatorio.")]
-    [AllowedValues("Vacunacion", "Revision General", "Cirugia", ErrorMessage = "El motivo de la visita debe ser 'Vacunacion', 'Revision General' o 'Cirugia'.")]
-    [MaxLength(100, ErrorMessage = "El motivo no puede tener más de 100 caracteres.")]
     public MotivoVisitaEnum MotivoVisita { get; set; }
     public decimal Costo => MotivoVisita switch
     {
@@ -35,5 +34,6 @@ public class VisitaVeterinaria
     public int MascotaId { get; set; }
     [ForeignKey("MascotaId")]
     public Mascota? Mascota { get; set; }
+}
 }
 

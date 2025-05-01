@@ -1,4 +1,8 @@
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<Maquis_DataBase_EvaluacionProgreso1_PrograIV>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("Maquis_DataBase_EvaluacionProgreso1_PrograIV") ?? throw new InvalidOperationException("Connection string 'Maquis_DataBase_EvaluacionProgreso1_PrograIV' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
