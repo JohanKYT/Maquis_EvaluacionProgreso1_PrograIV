@@ -48,6 +48,7 @@ namespace Maquis_EvaluacionProgreso1_PrograIV.Controllers
         public IActionResult Create()
         {
             ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Nombre");
+            ViewBag.MotivoVisita = new SelectList(Enum.GetValues(typeof(MotivoVisitaEnum)));
             return View();
         }
 
