@@ -47,7 +47,7 @@ namespace Maquis_EvaluacionProgreso1_PrograIV.Controllers
         // GET: VisitaVeterinarias/Create
         public IActionResult Create()
         {
-            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Id");
+            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Nombre");
             return View();
         }
 
@@ -64,7 +64,7 @@ namespace Maquis_EvaluacionProgreso1_PrograIV.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Id", visitaVeterinaria.MascotaId);
+            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Nombre", visitaVeterinaria.MascotaId);
             return View(visitaVeterinaria);
         }
 
@@ -81,7 +81,7 @@ namespace Maquis_EvaluacionProgreso1_PrograIV.Controllers
             {
                 return NotFound();
             }
-            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Id", visitaVeterinaria.MascotaId);
+            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Nombre", visitaVeterinaria.MascotaId);
             return View(visitaVeterinaria);
         }
 
@@ -117,7 +117,7 @@ namespace Maquis_EvaluacionProgreso1_PrograIV.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Id", visitaVeterinaria.MascotaId);
+            ViewData["MascotaId"] = new SelectList(_context.Mascota, "Id", "Nombre", visitaVeterinaria.MascotaId);
             return View(visitaVeterinaria);
         }
 
